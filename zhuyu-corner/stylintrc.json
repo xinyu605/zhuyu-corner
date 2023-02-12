@@ -1,0 +1,49 @@
+{
+  "plugins": ["stylelint-scss", "stylelint-order", "stylelint-no-unsupported-browser-features"],
+  "extends": [
+    "stylelint-config-recommended-scss",
+    "stylelint-config-concentric-order",
+    "stylelint-prettier/recommended"
+  ],
+  "rules": {
+    "indentation": 2,
+    "number-leading-zero": "always",
+    "string-quotes": "double",
+    "selector-max-id": 0,
+    "selector-list-comma-newline-after": "always",
+    "rule-empty-line-before": ["always", { "ignore": ["after-comment", "first-nested"] }],
+    "comment-empty-line-before": ["always", { "except": ["first-nested"] }],
+    "block-opening-brace-space-before": "always",
+    "declaration-colon-space-after": "always",
+    "declaration-colon-space-before": "never",
+    "declaration-block-single-line-max-declarations": 1,
+    "declaration-property-value-disallowed-list": { "/^border/": ["none"] },
+    "at-rule-empty-line-before": [
+      "always",
+      { "ignore": ["after-comment"], "except": ["first-nested"] }
+    ],
+    "max-nesting-depth": 2,
+    "scss/dollar-variable-pattern": "^_?[a-z]+[\\w-]*$",
+    "scss/at-extend-no-missing-placeholder": true,
+    "order/order": [
+      "declarations",
+      { "type": "at-rule" },
+      { "type": "at-rule", "hasBlock": true },
+      "rules"
+    ],
+    "selector-combinator-space-before": "always",
+    "selector-combinator-space-after": "always",
+    "color-hex-length": "short",
+    "plugin/no-unsupported-browser-features": true
+  },
+  "overrides": [
+    {
+      "files": ["**/*.{js,jsx,ts,tsx}"],
+      "customSyntax": "@stylelint/postcss-css-in-js",
+      "rules": {
+        "selector-type-no-unknown": null
+      }
+    }
+  ],
+  "ignoreFiles": ["**/node_modules/**", "**/next-env.d.ts", "**/.next/**"]
+}

@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:@next/next/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["sort-imports-es6-autofix"],
+  "ignorePatterns": ["./node_modules/**", "./next-env-d.ts", "./.next/**"],
+  "rules": {
+    "sort-imports-es6-autofix/sort-imports-es6": "error",
+    "no-void": ["error", { "allowAsStatement": true}],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_"}],
+    "no-restricted-imports": ["error", { "path": ["@material-ui/core"], "patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]}]
+  },
+  "overrides": [
+    {
+      "files": ["./**/*.ts?(x)"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "airbnb-typescript",
+        "prettier"
+      ],
+      "rules": {
+        "@typescript-eslint/type-annotation-spacing": "error",
+        "@typescript-eslint/member-delimiter-style": "error",
+        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "@typescript-eslint/no-explicit-any": "error"
+      }
+    }, {
+      "files":["*"],
+      "rules": {
+        "import/prefer-default-export": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/require-default-props": "off"
+      }
+    }
+  ]
+}
